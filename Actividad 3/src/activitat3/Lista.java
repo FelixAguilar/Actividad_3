@@ -17,14 +17,17 @@ public class Lista {
         primer = null;
     }
     
-    public void ejercicio2Apartado1(Nodo element){
-            Nodo aux;
-            aux = primer;
-            while(aux.getSiguiente() != element){
-                aux = aux.getSiguiente();
-            }
-            aux.setSiguiente(aux.getSiguiente().getSiguiente());
+     public void ejercicio2Apartado1(Nodo element) {
+        Nodo aux;
+        aux = primer;
+        if (primer.getSiguiente() == null) {
+            primer = null;
         }
+        while (aux.getSiguiente() != element) {
+            aux = aux.getSiguiente();
+        }
+        aux.setSiguiente(aux.getSiguiente().getSiguiente());
+    }
     
     public Nodo ejercicio2Apartado2(int info){
         Nodo elemento;
