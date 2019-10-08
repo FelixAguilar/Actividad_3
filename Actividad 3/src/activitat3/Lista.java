@@ -11,23 +11,33 @@ package activitat3;
  */
 public class Lista {
     
-    private Nodo primero;
+    private Nodo primer;
     
     public Lista(){
-        primero = null;
+        primer = null;
     }
     
-     public Nodo getPrimero() {
-        return primero;
+    public void Ejercicio5 (Nodo nuevo){
+        if (nuevo.getInfo()>primer.getInfo() && primer != null) {
+            Nodo A = primer;
+            while(nuevo.getInfo()> A.getSiguiente().getInfo()){
+                A = A.getSiguiente();
+            }
+            nuevo.setSiguiente(A.getSiguiente());
+            A.setSiguiente(nuevo);
+        }
+        else{
+            nuevo.setSiguiente(primer);
+            primer.setSiguiente(nuevo);
+        }
     }
-
-    public void setPrimero(Nodo primero) {
-        this.primero = primero;
+    
+    public String ToString(){
+        String s = "";
+        
+        return s;
     }
     
     // Métodos de eliminación, inserción, etc
-    
-    
-
-   
+ 
 }
