@@ -1,5 +1,7 @@
 package Ventana;
 
+import activitat3.Lista;
+import activitat3.Nodo;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.BoxLayout;
@@ -16,6 +18,9 @@ import javax.swing.border.EmptyBorder;
  * @author Felix Aguilar Ferrer, Adrian Bennassar Polzin, Alvaro Bueno Lopez.
  */
 public class Ventana extends JFrame {
+    
+    Lista lista = new Lista();
+    Lista libre = new Lista();
     
     //Constantes del menú.
     private final String TITULO = "Actividad 3";
@@ -117,7 +122,7 @@ public class Ventana extends JFrame {
         botonMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 JFrame frame = nuevaVentana(MOSTRAR);
-                Popup(frame,"Hola");
+                Popup(frame,"Lista \n" + lista.ToString() + "\nLibre \n" + libre.ToString());
                 frame.dispose();
             }
         });
@@ -174,7 +179,8 @@ public class Ventana extends JFrame {
         //Escuchadores de eventos.
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) { 
-                
+                Nodo nuevo = new Nodo(Integer.parseInt(info.getText()));
+                lista.insertarNodoFinal(nuevo);
                 frame.dispose();
             }
         });     
@@ -202,10 +208,10 @@ public class Ventana extends JFrame {
         linea2.setLayout(new BoxLayout(linea2, BoxLayout.X_AXIS));
         
         //Campo de texto para Nombre de la cuenta y label de este.
-        JLabel infoPuntero = new JLabel("Puntero:");
-        JTextField puntero = new JTextField();
-        linea1.add(infoPuntero);
-        linea1.add(puntero);
+        JLabel infoInfo = new JLabel("Info:");
+        JTextField info = new JTextField();
+        linea1.add(infoInfo);
+        linea1.add(info);
         
         //Botones.
         JButton botonAceptar = new JButton();
@@ -225,7 +231,9 @@ public class Ventana extends JFrame {
         //Escuchadores de eventos.
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) { 
-                
+                Nodo element = lista.ejercicio2Apartado2(Integer.parseInt(info.getText()));
+                lista.ejercicio2Apartado1(element);
+                libre.insertarNodoFinal(element);
                 frame.dispose();
             }
         });     
@@ -276,7 +284,7 @@ public class Ventana extends JFrame {
         //Escuchadores de eventos.
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) { 
-                
+                lista.ejercicio3(Integer.parseInt(puntero.getText()));
                 frame.dispose();
             }
         });     
@@ -327,7 +335,8 @@ public class Ventana extends JFrame {
         //Escuchadores de eventos.
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) { 
-                
+                Nodo nuevo = new Nodo(Integer.parseInt(info.getText()));
+                lista.Ejercicio5(nuevo);
                 frame.dispose();
             }
         });     
